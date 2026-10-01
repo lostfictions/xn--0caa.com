@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>àà</title>
+<style>
+  html, body { height: 100%; margin: 0; background: #000; overflow: hidden; }
+  svg { position: fixed; left: -128px; top: -128px; width: calc(100% + 256px); height: calc(100% + 256px); }
+</style>
+</head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="tile" width="68" height="99" patternUnits="userSpaceOnUse">
+      <animateTransform attributeName="patternTransform" type="translate" from="0 0" to="-68 -99" dur="6s" repeatCount="indefinite"/>
+      <rect width="68" height="99" fill="oklch(0.72 0.16 0)">
+        <animate
+          attributeName="fill"
+          dur="30s"
+          repeatCount="indefinite"
+          values="oklch(0.72 0.16 0); oklch(0.72 0.16 60); oklch(0.72 0.16 120); oklch(0.72 0.16 180); oklch(0.72 0.16 240); oklch(0.72 0.16 300); oklch(0.72 0.16 360)" />
+      </rect>
+      <polygon fill="#fff" points="10.77,0.781 31.573,0.781 44.294,19.597 31.176,19.597 "/>
+      <path fill="#fff" d="M2.554,49.147c1.06-17.624,16.829-22.924,32.2-22.924c13.648,0,30.079,3.047,30.079,19.479v35.645 c0,6.229,0.662,12.456,2.387,15.239H48.137c-0.662-2.12-1.192-4.373-1.325-6.625c-5.962,6.228-14.708,8.48-23.056,8.48 c-12.986,0-23.322-6.493-23.322-20.539c0-15.504,11.661-19.215,23.322-20.805c11.528-1.723,22.261-1.325,22.261-9.011 c0-8.083-5.565-9.275-12.19-9.275c-7.155,0-11.794,2.915-12.456,10.335H2.554z M46.017,63.061c-3.18,2.783-9.805,2.915-15.636,3.976 c-5.83,1.192-11.13,3.18-11.13,10.07c0,7.023,5.433,8.746,11.528,8.746c14.708,0,15.238-11.661,15.238-15.769V63.061z"/>
+    </pattern>
+    <filter id="warp" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.00651" numOctaves="2" stitchTiles="stitch" seed="7" x="0" y="0" width="768" height="768" result="tile"/>
+      <feTile in="tile" x="0" y="0" width="100%" height="100%" result="field"/>
+      <feDisplacementMap in="SourceGraphic" in2="field" scale="320" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#tile)" filter="url(#warp)"/>
+</svg>
+</body>
+</html>
